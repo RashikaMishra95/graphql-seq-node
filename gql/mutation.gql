@@ -1,0 +1,69 @@
+-------------------- INSERT -----------------------
+
+mutation saveData(
+            $Title:String!,
+            $Language:String!,
+            $Description:String!){
+  addProject(
+            title:$Title,
+            language:$Language,
+            description:$Description){
+              pid
+              title
+              language
+              description
+            }
+}
+
+/*
+{
+  "Title": "Sidecar",
+  "Language": "React JS",
+	"Description": "New Data"
+}
+*/
+-------------------- UPDATE -----------------------
+
+mutation updData(
+            $ID:Int,
+            $Title:String!,
+            $Language:String!,
+            $Description:String!){
+  updProject(
+             pid:$ID,
+            title:$Title,
+            language:$Language,
+            description:$Description){
+              pid
+              title
+              language
+              description
+            }
+}
+
+/*
+{
+  "ID": 1,
+  "Title": "Sidecar Learning",
+  "Language": "React JS",
+	"Description": "Tutorial Data"
+}
+*/
+
+-------------------- DELETE -----------------------
+
+mutation delData($ID:Int){
+    delProject(
+        pid:$ID
+    ){
+        id
+    		msg
+    }
+}
+
+/*
+{
+  "ID": 1
+}
+*/
+----------------------------------------------------------------------------------
