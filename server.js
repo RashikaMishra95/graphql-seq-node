@@ -29,7 +29,13 @@ const typeDefs = gql`
     }
 `;
 
-const server = new ApolloServer({typeDefs,resolvers});
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    introspection: true, // enables introspection of the schema
+    playground: true, // enables the actual playground
+});
+
 
 /*server.listen(7000,() => {
     console.log(`Server ready at 7000`);
