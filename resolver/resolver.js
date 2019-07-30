@@ -9,12 +9,12 @@ function insertData(parent,args){
     //     description:args.description
     // };
     // PSchema.save(data); Writing this way throw an error having data.save is not a function
-
-    return new PSchema({
+   /* return new PSchema({
         title:args.title,
         language:args.language,
         description:args.description
-    }).save();
+    }).save();*/
+    return new PSchema(args).save();
 }
 function delProject(parent,args){
     if(PSchema.destroy({where:{pid:args.pid}})){
@@ -34,6 +34,9 @@ const resolvers = {
     Query : {
         allProject : ()=>{
             return PSchema.findAll();
+        },
+        getProjById : (parent,args)=>{
+            return PSchema.findAll({where:{pid:args.pid}})
         }
     },
     Mutation :{

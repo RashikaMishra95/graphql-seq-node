@@ -12,6 +12,7 @@ const typeDefs = gql`
     }
     type Query{
         allProject:[Project]
+        getProjById(pid:Int):[Project]
     }
     type Message {
         id: Int
